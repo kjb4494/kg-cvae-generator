@@ -226,7 +226,8 @@ class KGCVAECorpus:
         return self._convert_dialog_to_id(self.valid_corpus.dialog)
 
     def _convert_meta_to_id(self, meta):
-        return [(a_info, b_info, self.vc.rev_topic_vocab[topic],) for a_info, b_info, topic in meta]
+        return [(vec_a_meta, vec_b_meta, self.vc.rev_topic_vocab[topic],)
+                for vec_a_meta, vec_b_meta, topic in meta]
 
     def get_meta_train_corpus(self):
         return self._convert_meta_to_id(self.train_corpus.meta)

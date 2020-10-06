@@ -17,6 +17,7 @@ limitations under the License.
 import os
 import utils
 from data_processing.corpus import KGCVAECorpus
+from data_processing.dataset import KGCVAEDataset
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
@@ -36,6 +37,15 @@ overall = {
 def main_code():
     corpus_config = utils.load_config(corpus_config_path)
     corpus = KGCVAECorpus(config=corpus_config)
+
+    dataset_config = utils.load_config(dataset_config_path)
+
+    train_set = KGCVAEDataset(
+        name='Train',
+        dialog=corpus.get_dialog_train_corpus(),
+        meta=corpus.get_meta_train_corpus(),
+        config=dataset_config
+    )
 
 
 if __name__ == "__main__":
