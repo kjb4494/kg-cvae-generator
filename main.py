@@ -15,13 +15,15 @@ limitations under the License.
 """
 
 import os
+import utils
+from data_processing.corpus import KGCVAECorpus
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
-corpus_config_path = 'config/cvae_corpus.json'
-dataset_config_path = 'config/cvae_dataset.json'
-trainer_config_path = 'config/cvae_trainer.json'
-model_config_path = 'config/cvae_model.json'
+corpus_config_path = 'config_files/cvae_corpus.json'
+dataset_config_path = 'config_files/cvae_dataset.json'
+trainer_config_path = 'config_files/cvae_trainer.json'
+model_config_path = 'config_files/cvae_model.json'
 
 overall = {
     "work_dir": "./work",
@@ -32,7 +34,8 @@ overall = {
 
 
 def main_code():
-    pass
+    corpus_config = utils.load_config(corpus_config_path)
+    corpus = KGCVAECorpus(config=corpus_config)
 
 
 if __name__ == "__main__":

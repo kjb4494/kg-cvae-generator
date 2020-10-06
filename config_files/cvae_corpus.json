@@ -1,8 +1,8 @@
 {
-  "data_dir": "data/korean",
-  "train_filename": "example_kor.json",
-  "test_filename": "example_kor.json",
-  "valid_filename": "example_kor.json",
+  "data_dir": "data_files",
+  "train_filename": "example.json",
+  "test_filename": "example.json",
+  "valid_filename": "example.json",
 
   "vocab_path": "kor.vocab",
   "load_vocab": false,
